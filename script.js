@@ -32,25 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const element = document.querySelector(".les-two");
-  let hoverTween = gsap.to(element, {
-    rotation: 360,
-    backgroundColor: "#a8871b",
-    duration: 1,
-    ease: "power2.out",
-    paused: true,
-    reversed: true,
-  });
+
+  let hoverTween;
 
   element.addEventListener("mouseenter", () => {
-    if (hoverTween.reversed()) {
-      hoverTween.play();
-    }
+    if (hoverTween) hoverTween.kill();
+
+    hoverTween = gsap.to(element, {
+      rotation: 360,
+      backgroundColor: "#a8871b",
+      duration: 1,
+      ease: "bounce.out",
+    });
   });
 
   element.addEventListener("mouseleave", () => {
-    if (!hoverTween.reversed()) {
-      hoverTween.reverse();
-    }
+    if (hoverTween) hoverTween.kill();
+
+    hoverTween = gsap.to(element, {
+      rotation: 0,
+      backgroundColor: "#1ba877",
+      duration: 1,
+      ease: "none",
+    });
   });
 
   //les two two
