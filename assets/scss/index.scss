@@ -1,0 +1,25 @@
+.selector {
+  width: 100px;
+  height: 100px;
+  background: #74a81b;
+  margin-bottom: 5px;
+}
+// .les-two {
+//   width: 100px;
+//   height: 100px;
+//   background-color: #1ba877;
+// }
+.les-two-two__wrap {
+  width: 100%;
+  height: 150px;
+  background-color: rgb(128, 97, 159);
+  position: relative;
+}
+.les-two-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* или 50% в зависимости от нужд */
+  position: absolute;
+}
