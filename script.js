@@ -101,16 +101,18 @@ document.addEventListener("DOMContentLoaded", function () {
   //     showLesTwo(".les-two-two", start);
   //   },
   // });
-  const applyStyles = (element, styles) => {
-    for (const key in styles) {
-      element.style[key] = styles[key];
-    }
-  };
+
+  /////////////////////////////////////////////////////////////////
+  // const applyStyles = (element, styles) => {
+  //   for (const key in styles) {
+  //     element.style[key] = styles[key];
+  //   }
+  // };
 
   const start = {
     width: "50%",
     height: "50%",
-    backgroundColor: "#74a81b",
+    backgroundColor: "transparent",
     display: "none",
     bottom: "25%",
     right: "25%",
@@ -119,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
+    color: "#000",
   };
 
   const hoverStyles = {
@@ -133,19 +136,31 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: "1",
     justifyContent: "center",
     alignItems: "center",
+    color: "#fff",
   };
 
-  const lesTwoTwo = document.querySelector(".les-two-two");
+  const { color: initialColor, ...initialStyles } = start;
+  const { color, ...hoverStylesWithoutColor } = hoverStyles;
 
-  // Устанавливаем начальные стили
-  applyStyles(lesTwoTwo, start);
+  const lesTwoTwo = document.querySelector(".les-two-two");
+  const textEl = lesTwoTwo.querySelector("p");
+
+  gsap.set(lesTwoTwo, start);
+  gsap.set(textEl, { color: start.color });
+
+  // applyStyles(lesTwoTwo, start);
 
   document
     .querySelector(".les-two-two__wrap")
     .addEventListener("mouseenter", () => {
       gsap.to(lesTwoTwo, {
-        ...hoverStyles,
-        duration: 0.5,
+        ...hoverStylesWithoutColor,
+        duration: 0.3,
+      });
+      gsap.to(textEl, {
+        color: color,
+        delay: 0.2,
+        duration: 0.3,
       });
     });
 
@@ -153,8 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector(".les-two-two__wrap")
     .addEventListener("mouseleave", () => {
       gsap.to(lesTwoTwo, {
-        ...start,
-        duration: 0.5,
+        ...initialStyles,
+        duration: 0.3,
+      });
+      gsap.to(textEl, {
+        color: initialColor,
+        delay: 0.2,
+        duration: 0.3,
       });
     });
 });
