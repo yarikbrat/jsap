@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-  gsap.to(".selector", {
-    x: 100,
-    // x: () => window.innerWidth - 100,
-    y: 50,
-    background: "orange",
-    duration: 1,
-    delay: 0.5,
-    repeat: 5,
-    repeatDelay: 1,
-    yoyo: true,
-    stagger: 0.1,
-    ease: "power2.inOut",
-    // ease: "sine.inOut",
-    // paused: true,
-    onStart: function () {
-      console.log("start");
-    },
-    onCompleted: function () {
-      console.log("end");
-    },
-  });
+  // gsap.to(".selector", {
+  //   x: 100,
+  //   // x: () => window.innerWidth - 100,
+  //   y: 50,
+  //   background: "orange",
+  //   duration: 1,
+  //   delay: 0.5,
+  //   repeat: 5,
+  //   repeatDelay: 1,
+  //   yoyo: true,
+  //   stagger: 0.1,
+  //   ease: "power2.inOut",
+  //   // ease: "sine.inOut",
+  //   // paused: true,
+  //   onStart: function () {
+  //     console.log("start");
+  //   },
+  //   onCompleted: function () {
+  //     console.log("end");
+  //   },
+  // });
 
   //les two
 
@@ -181,4 +181,57 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.3,
       });
     });
+
+  //title
+  const title = document.querySelector(".title");
+  const letters = title.textContent.split("");
+
+  title.innerHTML = "";
+  title.style.opacity = 1;
+
+  let spanArray = [];
+
+  letters.forEach((letter) => {
+    const span = document.createElement("span");
+    span.classList.add("letter");
+    span.textContent = letter === " " ? "\u00A0" : letter;
+    title.appendChild(span);
+    spanArray.push(span);
+  });
+
+  const totalWidth = spanArray.reduce(
+    (sum, span) => sum + span.getBoundingClientRect().width,
+    0
+  );
+
+  const offsetX = (title.clientWidth - totalWidth) / 2;
+  let currentX = offsetX;
+
+  spanArray.forEach((span) => {
+    const width = span.getBoundingClientRect().width;
+
+    span.style.left = `${currentX}px`;
+    span.style.top = `0px`;
+
+    currentX += width;
+  });
+
+  setTimeout(() => {
+    gsap.to(".letter", {
+      duration: 1,
+      opacity: 1,
+      color: "rgb(136, 206, 2)",
+      top: "+=50",
+      rotation: () => (Math.random() - 0.5) * 20,
+      ease: "bounce.out",
+      delay: (i) => i * 0.2,
+    });
+  }, 1000);
+
+  //stager
+  gsap.to(".stager", {
+    duration: 2,
+    y: 100,
+    x: 20,
+  });
 });

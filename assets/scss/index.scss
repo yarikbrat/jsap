@@ -21,3 +21,37 @@
   height: 100%;
   position: absolute;
 }
+//title
+.title-wrap {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 32px;
+  color: orange;
+  opacity: 0.5;
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+  height: 1em;
+}
+
+.letter {
+  opacity: 0.5;
+  position: absolute;
+  white-space: pre;
+}
+//stager
+#box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  margin: auto;
+}
+.stager {
+  width: 100px;
+  height: 100px;
+  background: #74a81b;
+  margin: 2px;
+}
