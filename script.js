@@ -224,14 +224,45 @@ document.addEventListener("DOMContentLoaded", function () {
       top: "+=50",
       rotation: () => (Math.random() - 0.5) * 20,
       ease: "bounce.out",
-      delay: (i) => i * 0.2,
+      // delay: (i) => i * 0.2,
+      stagger: {
+        each: 0.1,
+        from: "random",
+      },
     });
   }, 1000);
 
   //stager
+  // gsap.to(".stager", {
+  //   duration: 2,
+  //   y: 100,
+  //   // x: 100,
+  //   background: "orange",
+  //   opacity: 0.8,
+  //   // delay: function (i) {
+  //   //   return i * 0.5;
+  //   // }, замість можна
+
+  //   // stagger: 0.5,
+  //   // ease: "bounce.out",
+  //   stagger: {
+  //     each: 0.5,
+  //     from: "random",
+  //     repeat: 3,
+  //     yoyo: true,
+  //   },
+  // });
   gsap.to(".stager", {
     duration: 2,
-    y: 100,
-    x: 20,
+    background: "orange",
+    scale: 0.2,
+    stagger: {
+      each: 0.1,
+      // from: "center",
+      from: 56,
+      grid: "auto",
+      // grid: [9, 23],
+      // axis: "x",
+    },
   });
 });
