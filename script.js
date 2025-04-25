@@ -225,6 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
       rotation: () => (Math.random() - 0.5) * 20,
       ease: "bounce.out",
       // delay: (i) => i * 0.2,
+
       stagger: {
         each: 0.1,
         from: "random",
@@ -252,10 +253,21 @@ document.addEventListener("DOMContentLoaded", function () {
   //     yoyo: true,
   //   },
   // });
-  gsap.to(".stager", {
-    duration: 2,
+
+  //buttons
+  const started = document.getElementById("start");
+  const pause = document.getElementById("pause");
+  const play = document.getElementById("play");
+  const reverse = document.getElementById("reverse");
+  const restart = document.getElementById("restart");
+  const range = document.getElementById("range");
+  let tween = gsap.to(".stager", {
+    duration: 5,
     background: "orange",
-    scale: 0.2,
+    scale: 0.01,
+    borderRadius: "100%",
+    paused: true,
+    repeat: 1,
     stagger: {
       each: 0.1,
       // from: "center",
@@ -264,5 +276,110 @@ document.addEventListener("DOMContentLoaded", function () {
       // grid: [9, 23],
       // axis: "x",
     },
+    onUpdate: function () {
+      range.value = tween.progress() * 100;
+    },
+    onComplete: function () {
+      console.log("end");
+    },
+    onRepeat: function () {
+      console.log("repet");
+    },
+    onReverseComplete: function () {
+      console.log("end reverse");
+    },
+    onStart: function () {
+      console.log("start");
+    },
+  });
+
+  // let state = false;
+  // started.addEventListener("click", function (e) {
+  //   e.preventDefault();
+
+  //   if (state) {
+  //     tween.pause();
+  //   } else {
+  //     tween.play();
+  //   }
+
+  //   state = !state;
+  // });
+
+  started.addEventListener("click", function (e) {
+    e.preventDefault();
+    tween.play();
+  });
+
+  pause.addEventListener("click", function (e) {
+    e.preventDefault();
+    tween.pause();
+  });
+
+  play.addEventListener("click", function (e) {
+    e.preventDefault();
+    tween.resume();
+  });
+
+  reverse.addEventListener("click", function (e) {
+    e.preventDefault();
+    tween.reverse();
+  });
+
+  restart.addEventListener("click", function (e) {
+    e.preventDefault();
+    tween.restart();
+  });
+
+  range.addEventListener("input", function (e) {
+    tween.progress(e.target.value / 100);
+  });
+
+  //timeline
+
+  const anim = gsap.timeline({
+    repeat: 0,
+    repeatDelay: 1,
+  });
+
+  anim.to("h2", {
+    x: 0,
+    ease: "bounce",
+    duration: 2,
+  });
+
+  anim.to(
+    "h2",
+    {
+      duration: 0.1,
+      fontSize: "6rem",
+      color: "rgb(136, 206, 2)",
+    },
+    "+=1"
+  );
+  anim.to(
+    ".el",
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      ease: "back.out",
+      stagger: 0.055,
+    },
+    "-=3.1"
+  );
+
+  anim.to(
+    "footer",
+    {
+      x: 0,
+      ease: "bounce",
+      duration: 2,
+    },
+    "-=2"
+  );
+
+  anim.to("footer", {
+    rotation: -10,
   });
 });
