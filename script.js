@@ -382,4 +382,46 @@ document.addEventListener("DOMContentLoaded", function () {
   anim.to("footer", {
     rotation: -10,
   });
+
+  //draggable
+  // Draggable.create(".drag-el", {
+  //   type: "x,y",
+  //   bounds: "#draggable", //граница
+  //   edgeResistance: 0.65,
+  //   liveSnap: {
+  //     x: function (endValue) {
+  //       return Math.round(endValue / 100) * 100;
+  //     },
+  //     y: function (endValue) {
+  //       return Math.round(endValue / 100) * 100;
+  //     },
+  //   },
+  // });
+  Draggable.create(".drag-el", {
+    // type: "rotation",
+    type: "x,y",
+    bounds: "#draggable",
+    edgeResistance: 0.65,
+    // lockAxis: true, // движение по 1 оси до окончания клика
+    onDragEnd: function () {
+      const snappedX = Math.round(this.x / 100) * 100;
+      const snappedY = Math.round(this.y / 100) * 100;
+
+      gsap.to(this.target, {
+        x: snappedX,
+        y: snappedY,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    },
+    onDragStart: function () {
+      console.log("start");
+    },
+    onDrag: function () {
+      console.log("drag");
+    },
+    onClick: function () {
+      console.log("click");
+    },
+  });
 });

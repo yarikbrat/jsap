@@ -97,7 +97,7 @@ body {
   display: block;
   background: #74a81b;
   margin: 2px;
-  opacity: 0.5;
+  opacity: 0;
   transform: scale(2) translateY(300px);
 }
 
@@ -114,4 +114,46 @@ h2 {
 
 footer {
   transform: scale(1.5) translateX(1000px);
+}
+
+#draggable {
+  position: relative;
+  width: 700px;
+  height: 300px;
+  margin: auto;
+  border: 4px dashed #777;
+  margin-bottom: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.drag-el {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #74a81b;
+  border: 7px solid #222;
+  border-top-color: #555;
+  border-right-color: #777;
+  border-bottom-color: #aaa;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.cell {
+  border: 1px solid #555;
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+#text {
+  font-family: monospace;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.text {
+  font-weight: bold;
 }/*# sourceMappingURL=index.css.map */
