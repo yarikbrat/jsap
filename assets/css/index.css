@@ -165,4 +165,27 @@ footer {
 .cl-2 {
   color: #000;
   background: #ff0;
+}
+
+#motion {
+  position: relative;
+  width: 700px;
+  height: 300px;
+  margin: auto;
+  border: 4px dashed #777;
+}
+
+#motion-el {
+  width: 20px;
+  height: 20px;
+  background: orange;
+}
+
+svg {
+  border: 1px dashed #777;
+}
+
+.path {
+  stroke-width: 10px;
+  stroke: #74a81b;
 }/*# sourceMappingURL=index.css.map */

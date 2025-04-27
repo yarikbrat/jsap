@@ -462,4 +462,18 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     delay: 2,
   });
+
+  //motion plagin
+
+  gsap.registerPlugin(MotionPathPlugin);
+  gsap.to("#motion-el", {
+    duration: 2,
+    motionPath: {
+      path: document.querySelector(".path"),
+      align: ".path",
+      alignOrigin: [0.5, 0.5],
+      autoRotate: true,
+      start: 0.03,
+    },
+  });
 });
