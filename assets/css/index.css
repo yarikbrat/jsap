@@ -150,10 +150,19 @@ footer {
 #text {
   font-family: monospace;
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 3rem;
   text-align: center;
 }
 
 .text {
   font-weight: bold;
+}
+
+.cl-1 {
+  color: orange;
+}
+
+.cl-2 {
+  color: #000;
+  background: #ff0;
 }/*# sourceMappingURL=index.css.map */

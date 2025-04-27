@@ -424,4 +424,42 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("click");
     },
   });
+
+  //plugin text
+  gsap.registerPlugin(TextPlugin);
+
+  // gsap.to(".text-wrapper", {
+  //   duration: 2,
+  //   // text: "New Text",
+  //   text: {
+  //     value: "New Text",
+  //     delimiter: "",
+  //     newClass: "cl-1",
+  //     // oldClass: "cl-2",
+  //     // type: "diff",
+  //   },
+  //   ease: "none",
+  // });
+  let tl = gsap.timeline({
+    repeat: 0,
+    repeatDelay: 1,
+  });
+
+  tl.to(".text", {
+    duration: 0.5,
+    text: {
+      value: "Content Text",
+      newClass: "cl-2",
+    },
+    delay: 2,
+  });
+
+  tl.to(".text", {
+    duration: 0.5,
+    text: {
+      value: "Number 2",
+      newClass: "cl-1",
+    },
+    delay: 2,
+  });
 });
