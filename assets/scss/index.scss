@@ -1,184 +1,187 @@
-.selector {
-  width: 100px;
-  height: 100px;
-  background: #74a81b;
-  margin-bottom: 5px;
-}
-.les-two {
-  margin-bottom: 5px;
-}
-.les-two-two__wrap {
-  width: 100%;
-  height: 150px;
-  background-color: rgb(128, 97, 159);
-  position: relative;
-}
-.les-two-two {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-//title
-.title-wrap {
-  width: fit-content;
-  margin: 0 auto;
-}
+@use "gsap-2";
 
-.title {
-  font-size: 32px;
-  color: orange;
-  opacity: 0.5;
-  font-family: sans-serif;
-  text-align: center;
-  position: relative;
-  height: 1em;
-}
+// .selector {
+//   width: 100px;
+//   height: 100px;
+//   background: #74a81b;
+//   margin-bottom: 5px;
+// }
 
-.letter {
-  opacity: 0.5;
-  position: absolute;
-  white-space: pre;
-}
-//stager
-#box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 800px;
-  margin: 50px auto 0 auto;
-}
-.stager {
-  width: 30px;
-  height: 30px;
-  background: #74a81b;
-  margin: 2px;
-}
-//buttons
-.buttons-wrap {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  column-gap: 10px;
-  justify-content: center;
-  margin: 20px auto;
-}
-//timeline
-body {
-  // overflow: hidden;
-  font-family: sans-serif;
-}
-#wrapper {
-  width: 750px;
-  height: 300px;
-  margin: auto;
-  margin-bottom: 240px;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  // border: 4px dashed #777;
-  * {
-    box-sizing: border-box;
-  }
-}
-.selectors {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
-.el {
-  width: 10px;
-  height: 10px;
-  display: block;
-  background: #74a81b;
-  margin: 2px;
-  opacity: 0;
-  transform: scale(2) translateY(300px);
-}
-h2,
-footer {
-  font-size: 5rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
-h2 {
-  transform: scale(2) translateX(-1000px);
-}
-footer {
-  transform: scale(1.5) translateX(1000px);
-}
-//draggable
-#draggable {
-  position: relative;
-  width: 700px;
-  height: 300px;
-  margin: auto;
-  // top: 0;
-  // right: 0;
-  // left: 0;
-  // bottom: 0;
-  border: 4px dashed #777;
-  margin-bottom: 200px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.drag-el {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #74a81b;
-  border: 7px solid #222;
-  border-top-color: #555;
-  border-right-color: #777;
-  border-bottom-color: #aaa;
-  border-radius: 100%;
-  box-sizing: border-box;
-}
-.cell {
-  border: 1px solid #555;
-  width: 100px;
-  height: 100px;
-  box-sizing: border-box;
-}
-//plugin text
-#text {
-  font-family: monospace;
-  box-sizing: border-box;
-  font-size: 3rem;
-  text-align: center;
-}
-.text-wrapper {
-}
-.text {
-  font-weight: bold;
-}
-.cl-1 {
-  color: orange;
-}
-.cl-2 {
-  color: #000;
-  background: #ff0;
-}
-//motion plagin
-#motion {
-  position: relative;
-  width: 700px;
-  height: 300px;
-  margin: auto;
-  border: 4px dashed #777;
-}
-#motion-el {
-  width: 20px;
-  height: 20px;
-  background: orange;
-}
-svg {
-  border: 1px dashed #777;
-}
-.path {
-  stroke-width: 10px;
-  stroke: #74a81b;
-}
+// .les-two {
+//   margin-bottom: 5px;
+// }
+// .les-two-two__wrap {
+//   width: 100%;
+//   height: 150px;
+//   background-color: rgb(128, 97, 159);
+//   position: relative;
+// }
+// .les-two-two {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+// }
+// //title
+// .title-wrap {
+//   width: fit-content;
+//   margin: 0 auto;
+// }
+
+// .title {
+//   font-size: 32px;
+//   color: orange;
+//   opacity: 0.5;
+//   font-family: sans-serif;
+//   text-align: center;
+//   position: relative;
+//   height: 1em;
+// }
+
+// .letter {
+//   opacity: 0.5;
+//   position: absolute;
+//   white-space: pre;
+// }
+// //stager
+// #box {
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 800px;
+//   margin: 50px auto 0 auto;
+// }
+// .stager {
+//   width: 30px;
+//   height: 30px;
+//   background: #74a81b;
+//   margin: 2px;
+// }
+// //buttons
+// .buttons-wrap {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: row;
+//   column-gap: 10px;
+//   justify-content: center;
+//   margin: 20px auto;
+// }
+// //timeline
+// body {
+//   // overflow: hidden;
+//   // font-family: sans-serif;
+// }
+// #wrapper {
+//   width: 750px;
+//   height: 300px;
+//   margin: auto;
+//   margin-bottom: 240px;
+//   // position: absolute;
+//   // top: 0;
+//   // right: 0;
+//   // bottom: 0;
+//   // left: 0;
+//   // border: 4px dashed #777;
+//   * {
+//     box-sizing: border-box;
+//   }
+// }
+// .selectors {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-top: 15px;
+// }
+// .el {
+//   width: 10px;
+//   height: 10px;
+//   display: block;
+//   background: #74a81b;
+//   margin: 2px;
+//   opacity: 0;
+//   transform: scale(2) translateY(300px);
+// }
+// h2,
+// footer {
+//   font-size: 5rem;
+//   text-align: center;
+//   margin-bottom: 10px;
+// }
+// h2 {
+//   transform: scale(2) translateX(-1000px);
+// }
+// footer {
+//   transform: scale(1.5) translateX(1000px);
+// }
+// //draggable
+// #draggable {
+//   position: relative;
+//   width: 700px;
+//   height: 300px;
+//   margin: auto;
+//   // top: 0;
+//   // right: 0;
+//   // left: 0;
+//   // bottom: 0;
+//   border: 4px dashed #777;
+//   margin-bottom: 200px;
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+// .drag-el {
+//   position: absolute;
+//   width: 100px;
+//   height: 100px;
+//   background: #74a81b;
+//   border: 7px solid #222;
+//   border-top-color: #555;
+//   border-right-color: #777;
+//   border-bottom-color: #aaa;
+//   border-radius: 100%;
+//   box-sizing: border-box;
+// }
+// .cell {
+//   border: 1px solid #555;
+//   width: 100px;
+//   height: 100px;
+//   box-sizing: border-box;
+// }
+// //plugin text
+// #text {
+//   font-family: monospace;
+//   box-sizing: border-box;
+//   font-size: 3rem;
+//   text-align: center;
+// }
+// .text-wrapper {
+// }
+// .text {
+//   font-weight: bold;
+// }
+// .cl-1 {
+//   color: orange;
+// }
+// .cl-2 {
+//   color: #000;
+//   background: #ff0;
+// }
+// //motion plagin
+// #motion {
+//   position: relative;
+//   width: 700px;
+//   height: 300px;
+//   margin: auto;
+//   border: 4px dashed #777;
+// }
+// #motion-el {
+//   width: 20px;
+//   height: 20px;
+//   background: orange;
+// }
+// svg {
+//   border: 1px dashed #777;
+// }
+// .path {
+//   stroke-width: 10px;
+//   stroke: #74a81b;
+// }
